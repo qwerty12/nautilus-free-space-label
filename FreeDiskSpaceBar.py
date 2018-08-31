@@ -89,8 +89,9 @@ class FreeDiskSpaceBar(GObject.GObject, Nautilus.LocationWidgetProvider):
                 self.do_the_right_thing()
             return None
         if self.nfb_type == None:
-            self.nfb_type = GObject.type_from_name("NautilusFloatingBar")
-            if self.nfb_type == None:
+            try:
+                self.nfb_type = GObject.type_from_name("NautilusFloatingBar")
+            except:
                 return None
         self.current_uri = uri
         if not uri.startswith("file://"):
