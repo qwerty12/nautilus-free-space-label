@@ -1,3 +1,8 @@
+import gi
+gi.require_version('Nautilus', '3.0')
+gi.require_version('Gio', '2.0')
+gi.require_version('GLib', '2.0')
+gi.require_version('GObject', '2.0')
 from gi.repository import GLib, GObject, Gio, Gtk, Nautilus
 
 class FreeDiskSpaceBar(GObject.GObject, Nautilus.LocationWidgetProvider):
