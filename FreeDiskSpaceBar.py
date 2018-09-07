@@ -54,7 +54,8 @@ class FreeDiskSpaceBar(GObject.GObject, Nautilus.LocationWidgetProvider):
 
         overlay = None
         for child in nws.get_children():
-            if GObject.type_name(child) == "NautilusCanvasView":
+            type_name = GObject.type_name(child)
+            if type_name == "NautilusCanvasView" or type_name == "NautilusListView":
                 for grandchild in child.get_children():
                     if GObject.type_name(grandchild) == "GtkOverlay":
                         overlay = grandchild
